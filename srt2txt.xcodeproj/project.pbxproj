@@ -14,6 +14,7 @@
 		0AA594DD1E320F240079176D /* srt2txtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA594DC1E320F240079176D /* srt2txtTests.swift */; };
 		0AA594E81E320F240079176D /* srt2txtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA594E71E320F240079176D /* srt2txtUITests.swift */; };
 		0AA594F61E320F970079176D /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA594F51E320F970079176D /* DropView.swift */; };
+		0AA594F81E3236C50079176D /* SrtParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA594F71E3236C50079176D /* SrtParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0AA594E71E320F240079176D /* srt2txtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = srt2txtUITests.swift; sourceTree = "<group>"; };
 		0AA594E91E320F240079176D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA594F51E320F970079176D /* DropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
+		0AA594F71E3236C50079176D /* SrtParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SrtParser.swift; path = ../SrtParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		0AA594C91E320F240079176D /* srt2txt */ = {
 			isa = PBXGroup;
 			children = (
+				0AA594F71E3236C50079176D /* SrtParser.swift */,
 				0AA594CA1E320F240079176D /* AppDelegate.swift */,
 				0AA594CC1E320F240079176D /* ViewController.swift */,
 				0AA594CE1E320F240079176D /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA594F81E3236C50079176D /* SrtParser.swift in Sources */,
 				0AA594CD1E320F240079176D /* ViewController.swift in Sources */,
 				0AA594CB1E320F240079176D /* AppDelegate.swift in Sources */,
 				0AA594F61E320F970079176D /* DropView.swift in Sources */,
@@ -509,6 +513,7 @@
 				0AA594EE1E320F240079176D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AA594EF1E320F240079176D /* Build configuration list for PBXNativeTarget "srt2txtTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +522,7 @@
 				0AA594F11E320F240079176D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AA594F21E320F240079176D /* Build configuration list for PBXNativeTarget "srt2txtUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +531,7 @@
 				0AA594F41E320F240079176D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

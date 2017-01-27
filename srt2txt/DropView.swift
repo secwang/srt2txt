@@ -29,6 +29,8 @@ class DropView: NSView {
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        NSApp.activate(ignoringOtherApps: true)
+
         if checkExtension(sender) == true {
             self.layer?.backgroundColor = NSColor.blue.cgColor
             return .copy
@@ -65,6 +67,7 @@ class DropView: NSView {
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+
         guard let pasteboard = sender.draggingPasteboard().propertyList(forType: "NSFilenamesPboardType") as? NSArray,
             let path = pasteboard[0] as? String
             else { return false }
@@ -82,6 +85,16 @@ class DropView: NSView {
             
             do {
                 text2 = try String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
+                
+                if text2.range(of:"\r\n") != nil{
+                     text2 = text2.replacingOccurrences(of: "\r\n", with: "\n")
+                }
+
+                
+                
+                let x = SrtParser(text: text2)
+                text2 = x.returnFiltedString()
+                
             }
             catch {
                 Swift.print("Error info: \(error)")
@@ -92,7 +105,7 @@ class DropView: NSView {
             let savePanel = NSSavePanel()
             savePanel.allowedFileTypes = ["txt"]
             
-            var newFileName = fileUrl.deletingPathExtension().lastPathComponent
+            let newFileName = fileUrl.deletingPathExtension().lastPathComponent
 
             savePanel.nameFieldStringValue = newFileName
             let current = NSApplication.shared().mainWindow
