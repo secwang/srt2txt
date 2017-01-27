@@ -14,16 +14,40 @@ class DropView: NSView {
     var newFile: String?
     let expectedExt = ["srt"]  //file extensions allowed for Drag&Drop
     
+    var banner:NSString = "Drag Srt File Here"
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor.gray.cgColor
+    
+     
         
         register(forDraggedTypes: [NSFilenamesPboardType, NSURLPboardType])
     }
     
+    
+
     override func draw(_ dirtyRect: NSRect) {
+        
+        let font = NSFont(name: "Georgia", size: 36.0)
+        let textStyle = NSMutableParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.center
+        let textColor = NSColor.black
+        
+        
+        let textFontAttributes = [
+            NSFontAttributeName: font,
+            NSForegroundColorAttributeName: textColor,
+            NSParagraphStyleAttributeName: textStyle
+        ]
+//        var center = CGPoint(x:self.bounds.size.width / 2.0, y:self.bounds.size.height / 2.0)
+        let centerRect =  CGRect(x: self.frame.width/4 , y: (self.frame.height/4) , width: self.frame.width / 2, height: self.frame.height / 2)
+        
+        banner.draw(in: centerRect, withAttributes: textFontAttributes)
+        
+        
         super.draw(dirtyRect)
         // Drawing code here.
     }
@@ -32,9 +56,14 @@ class DropView: NSView {
         NSApp.activate(ignoringOtherApps: true)
 
         if checkExtension(sender) == true {
-            self.layer?.backgroundColor = NSColor.blue.cgColor
+            self.banner = "Release Now"
+            self.setNeedsDisplay((self.layer?.bounds)!)
+            
             return .copy
         } else {
+            self.banner = "Only Srt File Supported"
+            self.setNeedsDisplay((self.layer?.bounds)!)
+
             return NSDragOperation()
         }
     }
@@ -59,11 +88,15 @@ class DropView: NSView {
     }
     
     override func draggingExited(_ sender: NSDraggingInfo?) {
-        self.layer?.backgroundColor = NSColor.gray.cgColor
+        self.banner = "Drag Srt File Here"
+        self.setNeedsDisplay((self.layer?.bounds)!)
+
     }
     
     override func draggingEnded(_ sender: NSDraggingInfo?) {
-        self.layer?.backgroundColor = NSColor.gray.cgColor
+        self.banner = "Drag Srt File Here"
+        self.setNeedsDisplay((self.layer?.bounds)!)
+
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
@@ -124,6 +157,10 @@ class DropView: NSView {
                 }
             })
         }
+        
+        self.banner = "Coverting"
+        self.setNeedsDisplay((self.layer?.bounds)!)
+
         
         return true
     }
