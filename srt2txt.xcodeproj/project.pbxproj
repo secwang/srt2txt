@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		0A3FED681E3B457100E845D6 /* DropWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropWindow.swift; sourceTree = "<group>"; };
+		0A3FED6A1E3BA83E00E845D6 /* srt2txt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = srt2txt.entitlements; sourceTree = "<group>"; };
 		0AA594C71E320F240079176D /* srt2txt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = srt2txt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA594CA1E320F240079176D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA594CC1E320F240079176D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		0AA594C91E320F240079176D /* srt2txt */ = {
 			isa = PBXGroup;
 			children = (
+				0A3FED6A1E3BA83E00E845D6 /* srt2txt.entitlements */,
 				0AA594F71E3236C50079176D /* SrtParser.swift */,
 				0AA594CA1E320F240079176D /* AppDelegate.swift */,
 				0AA594CC1E320F240079176D /* ViewController.swift */,
@@ -201,6 +203,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = UR8YU25CNF;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					0AA594D71E320F240079176D = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -412,10 +419,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = srt2txt/srt2txt.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UR8YU25CNF;
 				INFOPLIST_FILE = srt2txt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = secwang.github.io.srt2txt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -426,10 +436,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = srt2txt/srt2txt.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UR8YU25CNF;
 				INFOPLIST_FILE = srt2txt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = secwang.github.io.srt2txt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

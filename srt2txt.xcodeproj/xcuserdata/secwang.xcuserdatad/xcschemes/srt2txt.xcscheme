@@ -106,6 +106,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "srt2txt"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
